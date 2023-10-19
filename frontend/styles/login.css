@@ -117,7 +117,7 @@ input[type=checkbox]:checked ~ .custom-checkbox{
 }
 
 input[type=checkbox]:checked ~ .custom-checkbox::before {
-    font-family: Serif;
+    font-family: SansSerif;
     content: "\f00c";
     display: inline-block;
     font-weight: 900;

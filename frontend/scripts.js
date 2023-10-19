@@ -1,5 +1,6 @@
 function test(){
-    let button = document.querySelector(".login-button");
+    console.log('scripts loaded')
+    const button = document.querySelector(".login-button");
     button.addEventListener(('click'), function (){
         fetch()
     })
