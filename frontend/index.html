@@ -2,31 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="icon" href="./favicon.png">
     <title>Workout App</title>
 </head>
 <body>
 <main>
-    <div class="wrapper">
-        <div class="heading">
-            <h2>Welcome!</h2>
-            <p>Sign In to your account</p>
-        </div>
+    <section class="login">
+        <article class="welcome-section">
+            <div class="text-container">
+                <h2 class="welcome-heading">Welcome Back!</h2>
+                <p class="welcome-paragraph">To view your workouts, please sign in.</p>
+            </div>
+        </article>
+        <article class="login-article">
+            <form class="login-form" action="">
+                <img src="./gym-logo.png" alt="gym logo">
+                <div class="form-heading">
+                    <h3>Sign In</h3>
+                </div>
+                <div class="inputs">
+                    <input type="text" id="email" class="input-field" placeholder="Email" >
+                    <input type="password" id="password" class="input-field" placeholder="Password">
+                </div>
 
-        <div class="input-group">
-            <input type="text" id="username" class="input-field" placeholder="Username" >
-        </div>
-
-        <div class="input-group">
-            <input type="password" id="password" class="input-field" placeholder="Password">
-        </div>
-
-        <div class="input-group login-button">
-            <button>Login</button>
-        </div>
-    </div>
+                <div class="input-group login-button">
+                    <button type="button" class="form-submit">Login</button>
+                </div>
+                <a class="register-switch">Register if you don't have an account</a>
+                <p class="error"></p>
+            </form>
+        </article>
+    </section>
 </main>
+<script type="module" src="./scripts/switchButtons.js"></script>
+<script type="module" src="./scripts/loader.js"></script>
+<script type="module" src="./scripts/http.js"></script>
+<script type="module" src="./scripts/scripts.js"></script>
 </body>
-<script type="text/javascript" src="./scripts.js"></script>
 </html>

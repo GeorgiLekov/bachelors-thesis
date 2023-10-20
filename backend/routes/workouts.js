@@ -1,6 +1,7 @@
 const express = require('express');
 const {
-    getWorkouts, updateWorkouts, createWorkoutSet
+    getWorkouts,
+    updateWorkouts
 } = require('../controllers/workoutController')
 const requireAuth = require('../middleware/requireAuth');
 const router = express.Router();
@@ -9,9 +10,6 @@ router.use(requireAuth);
 
 // Get all workouts of user
 router.get('/', getWorkouts);
-
-// Post a new workout
-router.post('/', createWorkoutSet);
 
 // Update workouts
 router.put('/', updateWorkouts);

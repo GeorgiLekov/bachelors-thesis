@@ -1,0 +1,32 @@
+.loader {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: gray;
+    opacity: 50%;
+    z-index: 100;
+    top:0;
+    left: 0;
+}
+
+.spinner {
+    position: absolute;
+    top: calc(50% - 40px);
+    left: calc(50% - 40px);
+    .ring {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 10px dotted white;
+        animation: 5s rotate infinite linear;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

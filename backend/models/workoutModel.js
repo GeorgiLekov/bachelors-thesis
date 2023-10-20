@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-// define how should a workout look
-const workoutSchema = new Schema({
+const exerciseSchema = new Schema({
     title: {
         type: String,
         required: true,
@@ -16,7 +15,16 @@ const workoutSchema = new Schema({
         type: Number,
         required: true
     },
-}, { timestamps: true });
+});
+
+// define how should a workout look
+const workoutSchema = new Schema({
+    title: {
+        type: String,
+        required: true,
+    },
+    exercises: [exerciseSchema]
+});
 
 // define how should workouts look
 const workoutsSchema = new Schema({
