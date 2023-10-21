@@ -91,7 +91,7 @@
     border-radius: 33px;
     border: none;
     text-align: center;
-    font: normal normal normal 22px/32px var(--application-font-family);
+    font: normal 22px/32px var(--application-font-family);
     color: var(--color-white);
     cursor: pointer;
 }
@@ -143,7 +143,7 @@
     }
 }
 
-.error{
+.exercise-edit-error-message{
     position: relative;
     color: red;
     height: 20px;

@@ -1,6 +1,10 @@
 @import './variables.css';
 @import './login.css';
 @import './loader.css';
+@import './workouts.css';
+@import './workoutsModal.css';
+@import './exercises.css';
+@import './exerciseEditModal.css';
 
 /* You can add global styles to this file, and also import other style files */
 /*

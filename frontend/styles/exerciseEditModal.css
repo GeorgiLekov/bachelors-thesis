@@ -1,0 +1,48 @@
+.exercise-edit-modal {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    top: calc(50% - 400px / 2);
+    left: calc(50% - 350px / 2);
+    width: 350px;
+    height: 400px;
+    background-color: var(--color-white);
+    z-index: 200;
+}
+
+.exercise-title-input-modal[type=text],
+.exercise-sets-input-modal[type=number],
+.exercise-reps-input-modal[type=number],
+.exercise-load-input-modal[type=number]{
+    color: var(--color-dark-gray);
+    padding-left: 10px;
+}
+
+.exercise-title-input-modal,
+.exercise-sets-input-modal,
+.exercise-reps-input-modal,
+.exercise-load-input-modal{
+    width: 300px;
+    height: 50px;
+    background: var(--color-white);
+    border: 1px solid var(--color-light-gray);
+}
+
+.save-exercise-button, .cancel-exercise-creation-button {
+    background-color: var(--color-aqua-blue);
+    border-radius: 33px;
+    text-align: center;
+    font: normal 22px/32px Source Sans Pro;
+    color: var(--color-white);
+    border: none;
+    width: 150px;
+}
+
+.error{
+    position: relative;
+    color: red;
+    height: 20px;
+}

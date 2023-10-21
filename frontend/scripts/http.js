@@ -1,24 +1,8 @@
 import {stopLoading, beginLoading} from "./loader.js";
+import {workoutsLoadedUpdateHtml} from "./workoutsManagement.js";
 
 let JWT;
-let workouts=[
-    {
-        "title": "Bench press",
-        "reps": 10,
-        "load": 70,
-        "_id": "65316fb90c4b5d147b4078b0",
-        "createdAt": "2023-10-19T18:04:41.923Z",
-        "updatedAt": "2023-10-19T18:04:41.923Z"
-    },
-    {
-        "title": "Pull ups",
-        "reps": 10,
-        "load": 0,
-        "_id": "65316fb90c4b5d147b4078b1",
-        "createdAt": "2023-10-19T18:04:41.923Z",
-        "updatedAt": "2023-10-19T18:04:41.923Z"
-    }
-];
+let workouts;
 
 async function logInOrRegister(mode) {
     const email = document.getElementById('email').value;
@@ -44,12 +28,35 @@ async function logInOrRegister(mode) {
         document.querySelector('.error').innerText = '';
         JWT = json.token;
         console.log(JWT, 'JWT');
+        stopLoading();
         await loadWorkouts();
+    }
+}
+
+export async function updateWorkouts(updatedWorkouts) {
+    beginLoading();
+    const response = await fetch(`http://localhost:4000/api/workouts`, {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'authorization': `Bearer: ${JWT}`,
+        },
+        body: JSON.stringify({workouts: updatedWorkouts})
+    });
+    const json = await response.json();
+    if(json.error){
+        console.log(json.error);
+    }
+    if(json) {
+        workouts = json.workouts;
+        workoutsLoadedUpdateHtml(workouts, updateWorkouts);
     }
     stopLoading();
 }
 
-async function loadWorkouts() {
+export async function loadWorkouts() {
+    beginLoading();
     const response = await fetch(`http://localhost:4000/api/workouts`, {
         method: 'GET',
         headers: {
@@ -64,8 +71,15 @@ async function loadWorkouts() {
     }
     if(json) {
         workouts = json.workouts;
-        console.log(workouts);
+        workoutsLoadedUpdateHtml(workouts, updateWorkouts);
     }
+    stopLoading();
+}
+export function modifyWorkoutExercisesAndSafeWorkouts(exercises, workoutId){
+    const updatedWorkouts = workouts;
+    const index = workouts.findIndex((workout) => workout._id === workoutId);
+    updatedWorkouts[index].exercises = exercises;
+    updateWorkouts(updatedWorkouts);
 }
 
 export {logInOrRegister, JWT};

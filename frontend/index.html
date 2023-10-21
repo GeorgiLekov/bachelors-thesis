@@ -2,43 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="icon" href="./favicon.png">
     <title>Workout App</title>
 </head>
 <body>
 <main>
-    <section class="login">
-        <article class="welcome-section">
-            <div class="text-container">
-                <h2 class="welcome-heading">Welcome Back!</h2>
-                <p class="welcome-paragraph">To view your workouts, please sign in.</p>
-            </div>
-        </article>
-        <article class="login-article">
-            <form class="login-form" action="">
-                <img src="./gym-logo.png" alt="gym logo">
-                <div class="form-heading">
-                    <h3>Sign In</h3>
+        <section class="login">
+            <article class="welcome-section">
+                <div class="text-container">
+                    <h2 class="welcome-heading">Welcome Back!</h2>
+                    <p class="welcome-paragraph">To view your workouts, please sign in.</p>
                 </div>
-                <div class="inputs">
-                    <input type="text" id="email" class="input-field" placeholder="Email" >
-                    <input type="password" id="password" class="input-field" placeholder="Password">
-                </div>
+            </article>
+            <article class="login-article">
+                <form class="login-form" action="">
+                    <img src="./gym-logo.png" alt="gym logo">
+                    <div class="form-heading">
+                        <h3>Sign In</h3>
+                    </div>
+                    <div class="inputs">
+                        <input type="text" id="email" class="input-field" placeholder="Email" >
+                        <input type="password" id="password" class="input-field" placeholder="Password">
+                    </div>
 
-                <div class="input-group login-button">
-                    <button type="button" class="form-submit">Login</button>
-                </div>
-                <a class="register-switch">Register if you don't have an account</a>
-                <p class="error"></p>
-            </form>
-        </article>
-    </section>
+                    <div class="input-group login-button">
+                        <button type="button" class="form-submit">Login</button>
+                    </div>
+                    <a class="register-switch">Register if you don't have an account</a>
+                    <p class="error"></p>
+                </form>
+            </article>
+        </section>
+    <!--    Here begins the workouts list:-->
+    <!--    <section class="workouts">-->
+    <!--        <article class="workouts-headers">-->
+    <!--            <h2 class="workouts-section-title">Workouts</h2>-->
+    <!--            <button class="add-workout-button">Add workout</button>-->
+    <!--        </article>-->
+    <!--        <article class="workouts-section">-->
+    <!--            <div class="workouts-list">-->
+    <!--                <div class="workout">-->
+    <!--                    <div class="workout-info-container">-->
+    <!--                        <h3 class="workout-title">Back workout</h3>-->
+    <!--                        <p class="workout-exercises">Lat pulldown, Deadlifts</p>-->
+    <!--                    </div>-->
+    <!--                    <div class="delete-container-placeholder">-->
+    <!--                        <button class="workout-delete">Delete</button>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </article>-->
+    <!--    </section>-->
+    <!--    Here begins the exercise list:-->
+<!--    <section class="exercises">-->
+<!--        <article class="exercise-headers">-->
+<!--            <h2 class="exercise-section-title">Exercises</h2>-->
+<!--            <div class="exercise-section-button-holder">-->
+<!--                <button class="add-exercise-button">Add Exercise</button>-->
+<!--                <button class="save-workout-button">Save Workout</button>-->
+<!--                <button class="cancel-edit-button">Cancel</button>-->
+<!--            </div>-->
+<!--        </article>-->
+<!--        <article class="exercise-list">-->
+<!--            <div class="exercise">-->
+<!--                <h3 class="exercise-title">Ride on the incline</h3>-->
+<!--                <div class="exercise-content">-->
+<!--                    <p class="exercise-sets">Sets: 5</p>-->
+<!--                    <p class="exercise-reps">Reps: 10</p>-->
+<!--                    <p class="exercise-load">Load: 10 kg</p>-->
+<!--                    <div class="exercise-delete-section">-->
+<!--                        <button class="exercise-delete-button">Delete</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </article>-->
+<!--    </section>-->
 </main>
-<script type="module" src="./scripts/switchButtons.js"></script>
-<script type="module" src="./scripts/loader.js"></script>
-<script type="module" src="./scripts/http.js"></script>
+<div class="modal-cover">
+</div>
+<article class="workout-add-title-modal">
+    <input type="text" id="workout-title-input-modal" class="workout-title-input" placeholder="Title">
+    <div class="button-holder">
+        <button class="create-workout-button">Create</button>
+        <button class="cancel-workout-creation">Cancel</button>
+    </div>
+</article>
+<article class="exercise-edit-modal">
+    <input type="text" id="exercise-title-input-modal" class="exercise-title-input-modal" placeholder="Title">
+    <input type="number" id="exercise-sets-input-modal" class="exercise-sets-input-modal" placeholder="Sets">
+    <input type="number" id="exercise-reps-input-modal" class="exercise-reps-input-modal" placeholder="Reps">
+    <input type="number" id="exercise-load-input-modal" class="exercise-load-input-modal" placeholder="Load">
+    <div class="button-holder">
+        <button class="save-exercise-button">Save</button>
+        <button class="cancel-exercise-creation-button">Cancel</button>
+    </div>
+    <p class="exercise-edit-error-message"></p>
+</article>
 <script type="module" src="./scripts/scripts.js"></script>
 </body>
 </html>

@@ -1,18 +1,19 @@
 const root = document.querySelector("main");
-function beginLoading () {
+
+function beginLoading() {
     const loadingElement = document.createElement("div");
-    loadingElement.innerHTML="" +
+    loadingElement.innerHTML = "" +
         "<div class=\"loader\">\n" +
-            "<div class=\"spinner\">\n" +
-                "<div class=\"ring\"></div>\n" +
-            "</div>\n" +
-        "</div>"
+        "</div>" +
+        "<div class=\"spinner\">\n" +
+        "<div class=\"ring\"></div>\n" +
+        "</div>\n";
     root.appendChild(loadingElement);
 }
 
-function stopLoading(){
+function stopLoading() {
     const loadingElement = document.querySelector('.loader');
-    if(loadingElement) loadingElement.remove();
+    if (loadingElement) loadingElement.remove();
 }
 
 export {beginLoading, stopLoading};

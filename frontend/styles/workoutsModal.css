@@ -1,0 +1,55 @@
+.modal-cover{
+    display: none;
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 50%;
+    background-color: gray;
+    z-index: 100;
+}
+.workout-add-title-modal {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    top: calc(50% - 350px / 2);
+    left: calc(50% - 350px / 2);
+    width: 350px;
+    height: 200px;
+    background-color: var(--color-white);
+    z-index: 200;
+}
+
+.workout-title-input[type=text] {
+    color: var(--color-dark-gray);
+    padding-left: 10px;
+}
+
+.workout-title-input {
+    width: 300px;
+    height: 50px;
+    background: var(--color-white);
+    border: 1px solid var(--color-light-gray);
+}
+
+.button-holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.create-workout-button, .cancel-workout-creation {
+    background-color: var(--color-aqua-blue);
+    border-radius: 33px;
+    text-align: center;
+    font: normal 22px/32px Source Sans Pro;
+    color: var(--color-white);
+    border: none;
+    width: 150px;
+}
+
