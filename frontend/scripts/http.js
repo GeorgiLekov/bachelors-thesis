@@ -46,9 +46,9 @@ export async function updateWorkouts(updatedWorkouts) {
     });
     const json = await response.json();
     if(json.error){
-        console.log(json.error);
+        alert(json.error);
     }
-    if(json) {
+    if(json.workouts) {
         workouts = json.workouts;
         workoutsLoadedUpdateHtml(workouts, updateWorkouts);
     }
@@ -67,9 +67,9 @@ export async function loadWorkouts() {
     });
     const json = await response.json();
     if(json.error){
-
+        alert(json.error);
     }
-    if(json) {
+    if(json.workouts) {
         workouts = json.workouts;
         workoutsLoadedUpdateHtml(workouts, updateWorkouts);
     }
