@@ -13,7 +13,11 @@ function beginLoading() {
 
 function stopLoading() {
     const loadingElement = document.querySelector('.loader');
-    if (loadingElement) loadingElement.remove();
+    const spinnerElement = document.querySelector('.spinner');
+    if (loadingElement) {
+        loadingElement.remove();
+        spinnerElement.remove();
+    }
 }
 
 export {beginLoading, stopLoading};

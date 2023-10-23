@@ -13,6 +13,8 @@ router.get('/', getWorkouts);
 // Update workouts
 router.put('/', updateWorkouts);
 
+module.exports = router;
+
 // Post a new workout
 // router.post('/', createWorkoutSet);
 
@@ -24,5 +26,3 @@ router.put('/', updateWorkouts);
 
 // Update a workout
 // router.patch('/:id', updateWorkout);
-
-module.exports = router;

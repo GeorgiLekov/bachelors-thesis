@@ -31,6 +31,7 @@ async function logInOrRegister(mode) {
         stopLoading();
         await loadWorkouts();
     }
+    stopLoading();
 }
 
 export async function updateWorkouts(updatedWorkouts) {
