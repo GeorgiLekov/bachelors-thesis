@@ -21,7 +21,15 @@
         border-radius: 33px;
         border: none;
         color: var(--color-white);
-        width: 300px;
+        width: 250px;
+        height: 50px;
+    }
+    .logout-button {
+        background: gray;
+        border-radius: 33px;
+        border: none;
+        color: var(--color-white);
+        width: 250px;
         height: 50px;
     }
 }
@@ -86,4 +94,18 @@
     border: none;
     color: var(--color-white);
     cursor: pointer;
+}
+
+@media only screen and (max-width: 480px) {
+    .workouts-headers {
+        .workouts-section-title {
+            font: normal 24px/32px var(--application-font-family);
+            color: var(--color-light-gray);
+        }
+
+        .add-workout-button, .logout-button {
+            width: 120px;
+            height: 45px;
+        }
+    }
 }

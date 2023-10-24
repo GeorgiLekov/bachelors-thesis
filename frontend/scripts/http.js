@@ -27,7 +27,6 @@ async function logInOrRegister(mode) {
     if (json.token) {
         document.querySelector('.error').innerText = '';
         JWT = json.token;
-        console.log(JWT, 'JWT');
         stopLoading();
         await loadWorkouts();
     }

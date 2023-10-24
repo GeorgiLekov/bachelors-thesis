@@ -25,37 +25,41 @@ const sets = document.getElementById('exercise-sets-input-modal');
 const reps = document.getElementById('exercise-reps-input-modal');
 const load = document.getElementById('exercise-load-input-modal');
 
-let exerciseEdit;
+let exerciseEdit = {};
+let editedIndex = -1;
 let isEdit = false;
 
-export function openExerciseEditModal(exercise) {
+export function openExerciseEditModal(exercise, index) {
     modal.style.display = "flex";
     cover.style.display = "block";
     errorBlock.innerText = '';
     console.log(exercise);
+    editedIndex = -1;
 
-    exerciseEdit = exercise;
     if (!exercise) {
-        exerciseEdit = {
-            title: '',
-            sets: 0,
-            reps: 0,
-            load: 0
-        }
         isEdit = false;
     } else {
         console.log('edit mode is on');
         isEdit = true;
+        editedIndex = index;
+        title.value = exercise.title;
+        sets.value = exercise.sets;
+        reps.value = exercise.reps;
+        load.value = exercise.load;
     }
-    title.value = exerciseEdit.title;
-    sets.value = exerciseEdit.sets;
-    reps.value = exerciseEdit.reps;
-    load.value = exerciseEdit.load;
+}
+
+function resetForm() {
+    title.value = null;
+    sets.value = null;
+    reps.value = null;
+    load.value = null;
 }
 
 function cancelEdit() {
     modal.style.display = "none";
     cover.style.display = "none";
+    resetForm()
 }
 
 function closeModalWithNewExercise() {
@@ -67,16 +71,18 @@ function closeModalWithNewExercise() {
         !exerciseEdit.title ||
         !exerciseEdit.sets ||
         !exerciseEdit.reps ||
-        !exerciseEdit.load ||
-        exerciseEdit.title.length < 4
+        !exerciseEdit.load
     ) {
         errorBlock.innerText = 'All fields are mandatory';
+    } else if (exerciseEdit.title.length < 4) {
+        errorBlock.innerText = 'Title needs to be at least 4 characters.';
     } else {
         cancelEdit();
         if(!isEdit){
-            addNewExercise(exerciseEdit)
+            addNewExercise({...exerciseEdit})
         } else {
-            editExercise(exerciseEdit);
+            editExercise({...exerciseEdit}, editedIndex);
+            isEdit = false;
         }
     }
 

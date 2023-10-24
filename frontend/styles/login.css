@@ -139,7 +139,18 @@
         height: 120px;
     }
     .input-field{
-        width: 350px;
+        width: 300px;
+    }
+    .form-submit{
+        width: 250px;
+        height: 45px;
+    }
+}
+@media only screen and (max-width: 350px) {
+    .login-form{
+        left: calc(50% - 200px/2);
+        width: 200px;
+        height: 420px;
     }
 }
 

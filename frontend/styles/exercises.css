@@ -81,11 +81,20 @@
         align-content: flex-start;
         align-items: center;
         margin-left: 20px;
-        .exercise-sets, .exercise-reps, .exercise-load{
-            width: 25%;
+        .exercise-sets, .exercise-reps{
+            width: 15%;
             text-align: left;
             font: normal 16px/22px var(--application-font-family);
             color: var(--color-light-gray);
+        }
+        .exercise-load {
+            width: 20%;
+        }
+        .exercise.delete-section {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            align-content: center;
         }
         .exercise-delete-button, .exercise-edit-button{
             position: relative;
@@ -101,4 +110,49 @@
             background-color: lightskyblue;
         }
     }
+}
+
+@media only screen and (max-width: 625px) {
+    .exercise{
+        width: 100%;
+    }
+    .exercise-headers {
+        .exercise-section-title {
+            font: normal 24px/32px var(--application-font-family);
+        }
+        .add-exercise-button{
+            width: 120px;
+            height: 50px;
+        }
+        .save-workout-button {
+            width: 120px;
+            height: 50px;
+        }
+        .cancel-edit-button{
+            width: 120px;
+            height: 50px;
+        }
+    }
+}
+
+@media only screen and (max-width: 525px) {
+    .exercise-headers {
+        flex-direction: column;
+        .exercise-section-title {
+            font: normal 18px/24px var(--application-font-family);
+        }
+        .add-exercise-button{
+            width: 120px;
+            height: 50px;
+        }
+        .save-workout-button {
+            width: 120px;
+            height: 50px;
+        }
+        .cancel-edit-button{
+            width: 120px;
+            height: 50px;
+        }
+    }
+
 }

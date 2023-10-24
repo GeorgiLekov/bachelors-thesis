@@ -29,6 +29,9 @@ const workoutSchema = new Schema({
         type: String,
         required: true,
     },
+    lastTrained: {
+        type: String,
+    },
     exercises: [exerciseSchema]
 });
 

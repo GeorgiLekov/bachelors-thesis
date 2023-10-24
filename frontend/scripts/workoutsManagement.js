@@ -36,7 +36,10 @@ export function workoutsLoadedUpdateHtml(workouts, updateWorkouts) {
     main.innerHTML = `<section class="workouts">
         <article class="workouts-headers">
             <h2 class="workouts-section-title">Workouts</h2>
+            <div>
             <button class="add-workout-button">Add workout</button>
+            <button class="logout-button">Logout</button>
+            </div>
         </article>
         <article class="workouts-section">
             <div class="workouts-list">
@@ -47,6 +50,11 @@ export function workoutsLoadedUpdateHtml(workouts, updateWorkouts) {
     const addWorkout = document.querySelector('.add-workout-button');
     addWorkout.addEventListener('click', function () {
         openModal(workouts);
+    })
+
+    const logoutButton = document.querySelector('.logout-button');
+    logoutButton.addEventListener('click', function () {
+        location.reload();
     })
 
     const workoutsList = document.querySelector('.workouts-list');

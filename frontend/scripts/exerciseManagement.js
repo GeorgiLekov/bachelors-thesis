@@ -12,7 +12,7 @@ function addExerciseDeleteListeners() {
         element.addEventListener(
             'click',
             function () {
-                const index = parseInt(element.getAttribute('id'));
+                const index = parseInt(element.getAttribute('id').split('-')[1]);
                 let updatedExercises = exercises;
                 updatedExercises.splice(index, 1);
                 openExerciseView(updatedExercises);
@@ -57,11 +57,11 @@ export function openExerciseView(exercisesInput, workoutId) {
                     <div class="exercise-delete-section">
                     <button 
                     class="exercise-edit-button"
-                    id="${exercise._id}"
+                    id="${index}"
                     >Edit</button>
                     <button 
                     class="exercise-delete-button"
-                    id="${index}"
+                    id="d-${index}"
                     >Delete</button>
                 </div>
                 </div>
@@ -83,9 +83,8 @@ export function openExerciseView(exercisesInput, workoutId) {
     });
     const exerciseCards = document.querySelectorAll('.exercise-edit-button');
     exerciseCards.forEach((exerciseCard) => exerciseCard.addEventListener(('click'), function (){
-        const id = exerciseCard.getAttribute('id');
-        const index = exercises.findIndex((exerciseItem) => exerciseItem._id === id);
-        openExerciseEditModal(exercises[index]);
+        const index = exerciseCard.getAttribute('id');
+        openExerciseEditModal(exercises[index], parseInt(index));
     }))
 
     // Add listeners for deleting exercises
@@ -98,9 +97,9 @@ export function addNewExercise(exercise) {
     openExerciseView(updatedExercises);
 }
 
-export function editExercise(editedExercise) {
-    const index = exercises.findIndex((exerciseItem) => exerciseItem._id === editedExercise._id)
+export function editExercise(editedExercise, editedIndex) {
+    console.log(editedIndex, "editedIndex");
     let updatedExercises = exercises;
-    updatedExercises[index] = editedExercise;
+    updatedExercises[editedIndex] = editedExercise;
     openExerciseView(updatedExercises);
 }
